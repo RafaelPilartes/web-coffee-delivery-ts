@@ -7,7 +7,7 @@ import {
 import coffeeLogo from '../../assets/coffee-delivery-logo.svg'
 
 import { MapPin, ShoppingCart } from 'phosphor-react'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export function Header() {
   const navigate = useNavigate()
@@ -22,18 +22,21 @@ export function Header() {
   return (
     <ConteinerHeader>
       <div className="conteiner">
-        <div onClick={goToHome}>
-          <img src={coffeeLogo} alt="" />
-        </div>
-
+        <NavLink to={'/'}>
+          <div>
+            <img src={coffeeLogo} alt="" />
+          </div>
+        </NavLink>
         <ConteinerHeaderButtons>
           <HeaderButtons variant="purple">
             <MapPin size={20} weight="fill" />
             Rua 21 de Janeiro
           </HeaderButtons>
-          <HeaderButtons onClick={goToCart} variant="yellow">
-            <ShoppingCart size={20} weight="fill" />
-          </HeaderButtons>
+          <NavLink to={'/completeOrder'}>
+            <HeaderButtons variant="yellow">
+              <ShoppingCart size={20} weight="fill" />
+            </HeaderButtons>
+          </NavLink>
         </ConteinerHeaderButtons>
       </div>
     </ConteinerHeader>

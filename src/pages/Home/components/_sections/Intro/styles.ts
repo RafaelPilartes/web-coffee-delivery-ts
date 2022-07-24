@@ -1,7 +1,7 @@
 import { rgba } from 'polished'
 import styled from 'styled-components'
 
-import imageBackground from '../../../../assets/intro-background.png'
+import imageBackground from '../../../../../assets/intro-background.png'
 
 export const IntroConteiner = styled.section`
   width: 100%;

@@ -1,9 +1,13 @@
 import React from 'react'
+import { SelectedCoffees } from './components/_sections/SelectedCoffee'
+import { CompleteOrdeForm } from './components/_sections/CompleteOrdeForm'
+import { CompleteOrderConteiner, SectionBaseStyle } from './styles'
 
 export function CompleteOrder() {
   return (
-    <>
-      <h1>CompleteOrder</h1>
-    </>
+    <CompleteOrderConteiner className="conteiner">
+      <CompleteOrdeForm />
+      <SelectedCoffees />
+    </CompleteOrderConteiner>
   )
 }

@@ -1,9 +1,9 @@
 import Reacr from 'react'
 
-import { CoffeCard } from '../../../../components/CoffeCard'
-import { TitleTxt } from '../../../../components/Typography'
+import { CoffeCard } from '../../../../../components/CoffeCard'
+import { TitleTxt } from '../../../../../components/Typography'
 
-import { docCoffees } from '../../../../data/coffees'
+import { docCoffees } from '../../../../../data/coffees'
 
 import { ListeCoffee, OurCoffeesConteiner } from './styles'
 

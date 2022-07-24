@@ -1,10 +1,10 @@
 import Reacr from 'react'
 import { BenefitsConteiner, IntroConteiner } from './styles'
 
-import introImg from '../../../../assets/intro-img.png'
+import introImg from '../../../../../assets/intro-img.png'
 
-import { RegularTxt, TitleTxt } from '../../../../components/Typography'
-import { InfoWithIcon } from '../../../../components/InfoWithIcon'
+import { RegularTxt, TitleTxt } from '../../../../../components/Typography'
+import { InfoWithIcon } from '../../../../../components/InfoWithIcon'
 
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 import { useTheme } from 'styled-components'

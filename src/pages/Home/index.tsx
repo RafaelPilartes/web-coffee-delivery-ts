@@ -1,6 +1,6 @@
 import Reacr from 'react'
-import { OurCoffees } from './components/OurCoffees'
-import { Intro } from './components/Intro'
+import { OurCoffees } from './components/_sections/OurCoffees'
+import { Intro } from './components/_sections/Intro'
 import { HomeConteiner } from './styles'
 
 function Home() {

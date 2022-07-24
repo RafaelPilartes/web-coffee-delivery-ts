@@ -12,7 +12,6 @@ export const QuantityInputConteiner = styled.div`
   gap: 0.4rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  margin: 0 0.5rem;
 
   input {
     width: 100%;
