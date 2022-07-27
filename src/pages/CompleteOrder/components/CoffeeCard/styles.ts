@@ -47,7 +47,7 @@ export const CoffeeCardConteiner = styled.div`
     }
   }
 `
-export const RemoveButton = styled.button`
+export const RemoveButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,6 +61,14 @@ export const RemoveButton = styled.button`
   background: ${({ theme }) => theme.colors['base-button']};
   border-radius: 0.4rem;
   transition: 0.3s;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+
+  cursor: pointer;
 
   svg {
     color: ${({ theme }) => theme.colors['brand-purple']};

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ConfirmationSectionConteiner = styled.section`
+export const ConfirmationSectionContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;

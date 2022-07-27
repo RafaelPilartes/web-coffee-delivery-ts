@@ -18,7 +18,7 @@ export function CompleteOrdeForm() {
 
   return (
     <CompleteOrdeFormConteiner className="conteiner">
-      <TitleTxt size="xs" color="subtitle">
+      <TitleTxt size="s" color="subtitle">
         Complete o seu pedido
       </TitleTxt>
 

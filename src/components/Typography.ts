@@ -20,7 +20,7 @@ export const TitleTxt = styled.h1<titleTxtProps>`
   font-weight: ${({ weight }) => weight ?? 800};
 `
 
-export const RegularTxt = styled.h1<regularTxtProps>`
+export const RegularTxt = styled.p<regularTxtProps>`
   color: ${({ theme, color }) => theme.colors[`base-${color ?? 'title'}`]};
   font-size: ${({ theme, size }) =>
     theme.textSizes[`text-regular-${size ?? 'm'}`]};

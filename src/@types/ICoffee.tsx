@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface CoffeeProps {
+export interface CoffeeProps {
   id: number
   tags: string[]
   name: string

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CoffeCardConteiner = styled.div`
+export const CoffeeCardContainer = styled.div`
   max-width: 15.8rem;
   text-align: center;
   padding: 1.25rem;
@@ -12,7 +12,7 @@ export const CoffeCardConteiner = styled.div`
   background: ${({ theme }) => theme.colors['base-card']};
   border-radius: 0.5rem 2rem 0.5rem 2rem;
 
-  .imgConteiner {
+  .imgContainer {
     position: relative;
     width: 7.5rem;
     height: 7.5rem;
@@ -29,7 +29,7 @@ export const CoffeCardConteiner = styled.div`
   }
 `
 
-export const TagsConteiner = styled.div`
+export const TagsContainer = styled.div`
   width: 100%;
   margin: 0 0 0.65rem 0;
   display: flex;

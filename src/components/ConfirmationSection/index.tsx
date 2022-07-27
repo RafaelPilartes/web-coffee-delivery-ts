@@ -1,39 +1,59 @@
 import { useEffect, useState } from 'react'
-import { docCoffees } from '../../data/coffees'
+import { useNavigate } from 'react-router-dom'
+import { routsName } from '../../data/routsName'
+import { useCart } from '../../hooks/useCart'
 import { separateComma } from '../../utils/utils'
 import { RegularTxt } from '../Typography'
-import { ButtonConfirmation, ConfirmationSectionConteiner } from './styles'
+import {
+  ButtonConfirmation,
+  ConfirmationSectionContainer as ConfirmationSectionContainer
+} from './styles'
+
+const DELIVERY_PRICE = 2260
 
 export function ConfirmationSection() {
   const [btnIsDisabled, setBtnIsDisabled] = useState<boolean>(true)
+  const [btnIsLoading, setBtnIsLoading] = useState<boolean>(false)
+  const { cartItemTotal, cartQuantity } = useCart()
 
-  useEffect(() => {
-    if (docCoffees.length >= 1) {
-      setBtnIsDisabled(false)
-    }
-  }, [])
+  const cartTotal = cartItemTotal + DELIVERY_PRICE
+
+  const navigate = useNavigate()
+
+  function confimOrder() {
+    setBtnIsLoading(true)
+
+    setTimeout(() => {
+      navigate(routsName.orderConfirmed)
+    }, 2000)
+  }
+
   return (
-    <ConfirmationSectionConteiner>
+    <ConfirmationSectionContainer>
       <div>
-        <RegularTxt size="s"> Total de itens </RegularTxt>
-        <RegularTxt> {separateComma(123456)}Kz </RegularTxt>
+        <RegularTxt size="s"> Subtotal </RegularTxt>
+        <RegularTxt> {separateComma(cartItemTotal)}Kz </RegularTxt>
       </div>
       <div>
         <RegularTxt size="s"> Entrega </RegularTxt>
-        <RegularTxt> {separateComma(123456)}Kz </RegularTxt>
+        <RegularTxt> {separateComma(DELIVERY_PRICE)}Kz </RegularTxt>
       </div>
       <div>
         <RegularTxt color="subtitle" weight={700} size="l">
           Total
         </RegularTxt>
         <RegularTxt color="subtitle" weight={700} size="l">
-          {separateComma(123456)}Kz
+          {separateComma(cartTotal)}Kz
         </RegularTxt>
       </div>
 
-      <ButtonConfirmation disabled={btnIsDisabled}>
-        Confirdmar pedido
-      </ButtonConfirmation>
-    </ConfirmationSectionConteiner>
+      {btnIsLoading ? (
+        <ButtonConfirmation disabled={true}>Carregando ...</ButtonConfirmation>
+      ) : (
+        <ButtonConfirmation onClick={confimOrder} disabled={cartQuantity <= 0}>
+          Confirmar pedido
+        </ButtonConfirmation>
+      )}
+    </ConfirmationSectionContainer>
   )
 }

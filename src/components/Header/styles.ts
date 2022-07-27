@@ -4,8 +4,8 @@ export const ConteinerHeader = styled.div`
   position: sticky;
   top: 0;
   width: 100%;
-  height: 6.5rem;
-  padding: 0 1.2rem;
+  min-height: 6.5rem;
+  padding: 1.6rem 1.2rem;
   flex-wrap: wrap;
   background-color: ${({ theme }) => theme.colors['base-background']};
   display: flex;

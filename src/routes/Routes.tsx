@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { routsName } from '../data/routsName'
 import { Layout } from '../Layout'
 
 import { CompleteOrder } from '../pages/CompleteOrder'
@@ -11,12 +12,9 @@ export function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/completeOrder" element={<CompleteOrder />} />
-          <Route
-            path="/completeOrder/OrderConfirmed"
-            element={<OrderConfirmed />}
-          />
+          <Route path={routsName.home} element={<Home />} />
+          <Route path={routsName.completeOrder} element={<CompleteOrder />} />
+          <Route path={routsName.orderConfirmed} element={<OrderConfirmed />} />
         </Route>
       </Routes>
     </BrowserRouter>

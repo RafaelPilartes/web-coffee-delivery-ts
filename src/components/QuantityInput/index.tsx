@@ -2,15 +2,25 @@ import { IconConteiner, QuantityInputConteiner } from './styles'
 
 import { Minus, Plus } from 'phosphor-react'
 
-export function QuantityInput() {
+interface quantityInputProps {
+  quanty: number
+  onDecrementQuanty: () => void
+  onIncrementQuanty: () => void
+}
+
+export function QuantityInput({
+  quanty,
+  onDecrementQuanty,
+  onIncrementQuanty
+}: quantityInputProps) {
   return (
     <QuantityInputConteiner>
-      <IconConteiner>
-        <Minus size={14} weight="fill" />{' '}
+      <IconConteiner disabled={quanty <= 1} onClick={onDecrementQuanty}>
+        <Minus size={14} weight="fill" />
       </IconConteiner>
-      <input type="number" readOnly value={1} />
-      <IconConteiner>
-        <Plus size={14} weight="fill" />{' '}
+      <input type="number" readOnly value={quanty} />
+      <IconConteiner onClick={onIncrementQuanty}>
+        <Plus size={14} weight="fill" />
       </IconConteiner>
     </QuantityInputConteiner>
   )
