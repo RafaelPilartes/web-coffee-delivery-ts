@@ -24,7 +24,8 @@ export function ConfirmationSection() {
     setBtnIsLoading(true)
 
     setTimeout(() => {
-      navigate(routsName.orderConfirmed)
+      setBtnIsLoading(false)
+      //navigate(routsName.orderConfirmed)
     }, 2000)
   }
 
@@ -47,13 +48,13 @@ export function ConfirmationSection() {
         </RegularTxt>
       </div>
 
-      {btnIsLoading ? (
-        <ButtonConfirmation disabled={true}>Carregando ...</ButtonConfirmation>
-      ) : (
-        <ButtonConfirmation onClick={confimOrder} disabled={cartQuantity <= 0}>
-          Confirmar pedido
-        </ButtonConfirmation>
-      )}
+      <ButtonConfirmation
+        onClick={confimOrder}
+        type="submit"
+        disabled={cartQuantity <= 0}
+      >
+        Confirmar pedido
+      </ButtonConfirmation>
     </ConfirmationSectionContainer>
   )
 }

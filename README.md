@@ -29,13 +29,20 @@ Fui utilizado conceitos um pouco mais avançados desenvolvendo do zero uma aplic
 - React Hook Form
 - Validações de formulário com Zod
 
+## 👨‍💻 Funcionalidades adicionais:
+
+- Pesquisa de produtos
+- Responsividade
+- React Hook Form
+- Validações de formulário com Zod
+
+<br />
+
 ## 🚧 Projeto:
 
 Em construção
 
 <br />
-
-
 
 &nbsp;
 

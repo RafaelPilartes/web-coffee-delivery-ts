@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CompleteOrderConteiner = styled.form`
+export const CompleteOrderContainer = styled.form`
   margin-top: 2.5rem;
   width: 100%;
   display: flex;
@@ -14,7 +14,7 @@ export const CompleteOrderConteiner = styled.form`
   }
 `
 
-export const SectionBaseStyle = styled.form`
+export const SectionBaseStyle = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.colors['base-card']};
   border-radius: 0.4rem;

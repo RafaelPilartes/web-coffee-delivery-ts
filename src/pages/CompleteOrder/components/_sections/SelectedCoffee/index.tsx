@@ -10,7 +10,7 @@ export function SelectedCoffees() {
   const { cartItems, cartQuantity } = useCart()
 
   const listCoffees = cartItems.map((item, index) => {
-    return <CoffeeCard item={item} />
+    return <CoffeeCard key={index} item={item} />
   })
 
   return (

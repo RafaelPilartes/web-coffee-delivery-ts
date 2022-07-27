@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CompleteOrdeFormConteiner = styled.form`
+export const CompleteOrderFormContainer = styled.div`
   width: 48rem;
   max-width: 48rem;
   display: flex;
@@ -9,7 +9,7 @@ export const CompleteOrdeFormConteiner = styled.form`
   gap: 2rem;
 `
 
-export const AddressFormConteiner = styled.div`
+export const AddressFormContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 12.5rem 17.25rem 3.75rem;
@@ -39,7 +39,7 @@ export const AddressFormConteiner = styled.div`
   }
 `
 
-export const PaymentMethodsOptionsConteiner = styled.div`
+export const PaymentMethodsOptionsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
