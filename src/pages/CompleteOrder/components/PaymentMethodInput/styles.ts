@@ -1,7 +1,27 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { RegularTxt } from '../../../../components/Typography'
 
-export const PaymentMethodInputConteiner = styled.div`
+export const PaymentMethodInputContainer = styled.div`
+  input {
+    visibility: hidden;
+    appearance: none;
+  }
+  input:checked + label div {
+    ${({ theme }) => css`
+      background: ${theme.colors['brand-purple-light']};
+      border-color: ${theme.colors['brand-purple']};
+
+      &:hover {
+        background: ${theme.colors['brand-purple-light']};
+      }
+    `}
+  }
+`
+
+export const RegularTxtPayMeth = styled(RegularTxt)`
+  font-size: 0.8rem;
+`
+export const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -24,7 +44,4 @@ export const PaymentMethodInputConteiner = styled.div`
   &:hover {
     background: ${({ theme }) => theme.colors['base-hover']};
   }
-`
-export const RegularTxtPayMeth = styled(RegularTxt)`
-  font-size: 0.8rem;
 `

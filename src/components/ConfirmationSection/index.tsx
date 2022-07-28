@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { routsName } from '../../data/routsName'
 import { useCart } from '../../hooks/useCart'
+import { useMyContext } from '../../hooks/useMyContext'
 import { separateComma } from '../../utils/utils'
 import { RegularTxt } from '../Typography'
 import {
@@ -15,19 +16,11 @@ export function ConfirmationSection() {
   const [btnIsDisabled, setBtnIsDisabled] = useState<boolean>(true)
   const [btnIsLoading, setBtnIsLoading] = useState<boolean>(false)
   const { cartItemTotal, cartQuantity } = useCart()
+  const { isLoading } = useMyContext()
 
   const cartTotal = cartItemTotal + DELIVERY_PRICE
 
   const navigate = useNavigate()
-
-  function confimOrder() {
-    setBtnIsLoading(true)
-
-    setTimeout(() => {
-      setBtnIsLoading(false)
-      //navigate(routsName.orderConfirmed)
-    }, 2000)
-  }
 
   return (
     <ConfirmationSectionContainer>
@@ -49,11 +42,10 @@ export function ConfirmationSection() {
       </div>
 
       <ButtonConfirmation
-        onClick={confimOrder}
         type="submit"
-        disabled={cartQuantity <= 0}
+        disabled={cartQuantity <= 0 || isLoading}
       >
-        Confirmar pedido
+        {isLoading ? 'Carregando ...' : 'Confirmar pedido'}
       </ButtonConfirmation>
     </ConfirmationSectionContainer>
   )

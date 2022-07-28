@@ -17,11 +17,12 @@ interface CartContextType {
   ) => void
   removeItemToCart: (cartItemId: number) => void
   cartItemTotal: number
+  clearCart: () => void
 }
 const COFFEE_ITEMS_STORAGE_KEY = 'coffeeDelivery:cartItems'
 
 export const CartContext = createContext({} as CartContextType)
-export function AppProvider({ children }: IChildren) {
+export function CartContextProvider({ children }: IChildren) {
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     const storageCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY)
 
@@ -86,6 +87,10 @@ export function AppProvider({ children }: IChildren) {
     setCartItems(newCart)
   }
 
+  function clearCart() {
+    setCartItems([])
+  }
+
   useEffect(() => {
     localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems))
   }, [cartItems])
@@ -98,7 +103,8 @@ export function AppProvider({ children }: IChildren) {
         cartQuantity,
         changeCartItemQuantity,
         removeItemToCart,
-        cartItemTotal
+        cartItemTotal,
+        clearCart
       }}
     >
       {children}

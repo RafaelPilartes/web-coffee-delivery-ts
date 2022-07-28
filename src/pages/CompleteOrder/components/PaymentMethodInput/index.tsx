@@ -1,17 +1,38 @@
-import { ReactNode } from 'react'
-import { RegularTxt } from '../../../../components/Typography'
-import { PaymentMethodInputConteiner, RegularTxtPayMeth } from './styles'
+import { forwardRef, ReactNode } from 'react'
+import {
+  PaymentMethodInputContainer,
+  RegularTxtPayMeth,
+  ContentContainer
+} from './styles'
 
 interface PaymentMethodInputProps {
+  id: string
   icon: ReactNode
   method: string
+  value: string
 }
 
-export function PaymentMethodInput({ icon, method }: PaymentMethodInputProps) {
+export const PaymentMethodInput = forwardRef<
+  HTMLInputElement,
+  PaymentMethodInputProps
+>(({ id, icon, method, value, ...props }, ref) => {
   return (
-    <PaymentMethodInputConteiner>
-      {icon}
-      <RegularTxtPayMeth> {method} </RegularTxtPayMeth>
-    </PaymentMethodInputConteiner>
+    <PaymentMethodInputContainer>
+      <input
+        id={id}
+        type="radio"
+        name="paymentMethodInput"
+        {...props}
+        ref={ref}
+        value={value}
+      />
+
+      <label htmlFor={id}>
+        <ContentContainer>
+          {icon}
+          <RegularTxtPayMeth> {method} </RegularTxtPayMeth>
+        </ContentContainer>
+      </label>
+    </PaymentMethodInputContainer>
   )
-}
+})

@@ -45,4 +45,8 @@ export const PaymentMethodsOptionsContainer = styled.div`
   justify-content: center;
   gap: 1.15rem;
   flex-wrap: wrap;
+
+  > p {
+    color: ${({ theme }) => theme.colors['base-error']};
+  }
 `

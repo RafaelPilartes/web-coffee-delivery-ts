@@ -33,8 +33,6 @@ Fui utilizado conceitos um pouco mais avançados desenvolvendo do zero uma aplic
 
 - Pesquisa de produtos
 - Responsividade
-- React Hook Form
-- Validações de formulário com Zod
 
 <br />
 

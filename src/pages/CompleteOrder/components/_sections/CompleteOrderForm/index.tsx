@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 
 import { InputForm } from '../../../../../components/InputForm'
 
-import { TitleTxt } from '../../../../../components/Typography'
+import { RegularTxt, TitleTxt } from '../../../../../components/Typography'
 import { SectionBaseStyle } from '../../../styles'
 import { PaymentMethodInput } from '../../PaymentMethodInput'
 import { TitleSection } from '../../TitleSection'
@@ -22,11 +22,29 @@ interface ErrorsType {
   }
 }
 
+export const paymentMethods = {
+  credit: {
+    label: 'Cartão de credito',
+    icon: <CreditCard size={18} />
+  },
+  debit: {
+    label: 'Cartão de débito',
+    icon: <CurrencyDollar size={18} />
+  },
+  money: {
+    label: 'Dinheiro',
+    icon: <CurrencyDollar size={18} />
+  }
+}
+
 export function CompleteOrderForm() {
   const { colors } = useTheme()
   const { register, formState } = useFormContext()
 
   const { errors } = formState as unknown as ErrorsType
+
+  const paymentMethodError = errors.paymentMethodInput
+    ?.message as unknown as string
 
   return (
     <CompleteOrderFormContainer className="conteiner">
@@ -82,18 +100,20 @@ export function CompleteOrderForm() {
         />
 
         <PaymentMethodsOptionsContainer>
-          <PaymentMethodInput
-            icon={<CreditCard size={18} color={colors['brand-purple']} />}
-            method="Cartão de credito"
-          />
-          <PaymentMethodInput
-            icon={<CurrencyDollar size={18} color={colors['brand-purple']} />}
-            method="Cartão de credito"
-          />
-          <PaymentMethodInput
-            icon={<CurrencyDollar size={18} color={colors['brand-purple']} />}
-            method="Cartão de credito"
-          />
+          {Object.entries(paymentMethods).map(([key, { label, icon }]) => (
+            <PaymentMethodInput
+              key={label}
+              id={key}
+              icon={icon}
+              method={label}
+              {...register('paymentMethodInput')}
+              value={key}
+            />
+          ))}
+
+          {paymentMethodError && (
+            <RegularTxt> {paymentMethodError} </RegularTxt>
+          )}
         </PaymentMethodsOptionsContainer>
       </SectionBaseStyle>
     </CompleteOrderFormContainer>

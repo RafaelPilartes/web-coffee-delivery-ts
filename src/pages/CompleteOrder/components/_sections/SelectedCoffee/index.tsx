@@ -2,6 +2,7 @@ import { ConfirmationSection } from '../../../../../components/ConfirmationSecti
 import { RegularTxt, TitleTxt } from '../../../../../components/Typography'
 import { docCoffees } from '../../../../../data/coffees'
 import { useCart } from '../../../../../hooks/useCart'
+import { useMyContext } from '../../../../../hooks/useMyContext'
 import { SectionBaseStyle } from '../../../styles'
 import { CoffeeCard } from '../../CoffeeCard'
 import { SelectedCoffeesConteiner } from './styles'

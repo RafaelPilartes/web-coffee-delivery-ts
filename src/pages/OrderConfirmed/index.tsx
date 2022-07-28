@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { RegularTxt, TitleTxt } from '../../components/Typography'
 import { OrderConfirmedConteiner, OrderDetailsConteiner } from './styles'
 
@@ -6,14 +8,33 @@ import { MapPin, Timer, CurrencyDollar } from 'phosphor-react'
 import imageOrderConfirmed from '../../assets/confirmed-order.svg'
 import { InfoWithIcon } from '../../components/InfoWithIcon'
 import { useTheme } from 'styled-components'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { OrderDataType } from '../CompleteOrder'
+import { paymentMethods } from '../CompleteOrder/components/_sections/CompleteOrderForm'
+
+interface locationType {
+  state: OrderDataType
+}
 
 export function OrderConfirmed() {
   const { colors } = useTheme()
+  const navigate = useNavigate()
+  const { state } = useLocation() as unknown as locationType
 
-  const city: string = 'Benfica'
-  const street: string = 'Rua 21 de Janeiro'
+  const city: string = state.city
+  const street: string = state.street
   const timer: string = '20 min - 30 min'
-  const paymeth: string = 'Cartão de Crédito'
+  const payment: string = paymentMethods[state.paymentMethodInput].label
+
+  useEffect(() => {
+    if (!state) {
+      navigate('/')
+    }
+  }, [])
+
+  if (!state) {
+    return <></>
+  }
 
   return (
     <OrderConfirmedConteiner className="conteiner">
@@ -56,7 +77,7 @@ export function OrderConfirmed() {
               <RegularTxt>
                 Pagamento na entrega
                 <br />
-                <strong> {paymeth} </strong>
+                <strong> {payment} </strong>
               </RegularTxt>
             }
             iconBg={colors['brand-yellow-dark']}
