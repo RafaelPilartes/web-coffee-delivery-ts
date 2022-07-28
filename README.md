@@ -31,17 +31,17 @@ Fui utilizado conceitos um pouco mais avançados desenvolvendo do zero uma aplic
 
 ## 👨‍💻 Funcionalidades adicionais:
 
-- Pesquisa de produtos
 - Responsividade
+- Pesquisa de cafés
 
 <br />
 
 ## 🚧 Projeto:
 
-Em construção
+Faltando a Pesquisa de cafés
 
 <br />
 
 &nbsp;
 
-<p align="center">Feito com 💙 por RafaelPilarte</p>
+<p align="center">Feito com 💙 por RafaelPilartes</p>
