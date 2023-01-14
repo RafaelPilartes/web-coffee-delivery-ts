@@ -18,6 +18,12 @@ Fui utilizado conceitos um pouco mais avançados desenvolvendo do zero uma aplic
   </li>
 </ul>
 
+## 🌐 Deploy
+
+<a href='https://coffeedev-rp.netlify.app/'>
+  Ir para o site "Coffee Delivery"
+</a>
+
 ## 🛠️ Nesse projeto foi utilizado
 
 - Vite
